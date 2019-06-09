@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//for test by kim
 public class Bullet : MonoBehaviour
 {
     // Start is called before the first frame update
