@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Weapon
 {
+    //commit for test by kim
     public enum WeaponType
     {
         Pistol, SMG, Rifle, Shotgun, Sniper
