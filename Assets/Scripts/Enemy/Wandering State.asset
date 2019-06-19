@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64ca5348048389e46914182383b06b19, type: 3}
   m_Name: Wandering State
   m_EditorClassIdentifier: 
+  minDistance: 3
+  maxDistance: 5

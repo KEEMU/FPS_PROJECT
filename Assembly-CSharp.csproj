@@ -71,6 +71,7 @@
      <Compile Include="Assets\Low Poly FPS Pack - Free (Sample)\Components\Scripts\UI\EventManager.cs" />
      <Compile Include="Assets\Low Poly FPS Pack - Free (Sample)\Components\Scripts\Weapon_Scripts\AutomaticGunScriptLPFP.cs" />
      <Compile Include="Assets\Low Poly FPS Pack - Free (Sample)\Components\Scripts\Weapon_Scripts\HandgunScriptLPFP.cs" />
+     <Compile Include="Assets\Scripts\Boss\BossAttributes.cs" />
      <Compile Include="Assets\Scripts\Enemy\AttackingState.cs" />
      <Compile Include="Assets\Scripts\Enemy\Enemy.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemyAttributes.cs" />
