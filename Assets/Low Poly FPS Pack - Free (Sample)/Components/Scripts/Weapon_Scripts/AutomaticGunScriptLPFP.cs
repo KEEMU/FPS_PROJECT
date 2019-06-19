@@ -66,7 +66,7 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 	private bool isInspecting;
 
 	//How much ammo is currently left
-	private int currentAmmo;
+	public int currentAmmo;
 	//Totalt amount of ammo
 	[Tooltip("How much ammo the weapon should have.")]
 	public int ammo;
@@ -210,10 +210,10 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 	}
 	
 	private void Update () {
-
-		//Aiming
-		//Toggle camera FOV when right click is held down
-		if(Input.GetButton("Fire2") && !isReloading && !isRunning && !isInspecting) 
+        
+        //Aiming
+        //Toggle camera FOV when right click is held down
+        if (Input.GetButton("Fire2") && !isReloading && !isRunning && !isInspecting) 
 		{
 			
 			isAiming = true;
@@ -326,7 +326,8 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 			if (autoReload == true && !isReloading) 
 			{
 				StartCoroutine (AutoReload ());
-			}
+            }
+
 		} 
 		else 
 		{
@@ -349,10 +350,10 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 				//Remove 1 bullet from ammo
 				currentAmmo -= 1;
 
-				shootAudioSource.clip = SoundClips.shootSound;
+                shootAudioSource.clip = SoundClips.shootSound;
 				shootAudioSource.Play ();
 
-				if (!isAiming) //if not aiming
+                if (!isAiming) //if not aiming
 				{
 					anim.Play ("Fire", 0, 0f);
 					//If random muzzle is false
@@ -410,7 +411,8 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 							}
 						}
 					}
-				}
+
+                }
 
 				//Spawn bullet from bullet spawnpoint
 				var bullet = (Transform)Instantiate (
@@ -426,8 +428,9 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 				Instantiate (Prefabs.casingPrefab, 
 					Spawnpoints.casingSpawnPoint.transform.position, 
 					Spawnpoints.casingSpawnPoint.transform.rotation);
-			}
-		}
+                EventManager.TriggerEvent("Fire");
+            }
+        }
 
 		//Inspect weapon when F key is pressed
 		if (Input.GetKeyDown (KeyCode.F)) 
@@ -538,7 +541,8 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 		//Restore ammo when reloading
 		currentAmmo = ammo;
 		outOfAmmo = false;
-	}
+        EventManager.TriggerEvent("Change");
+    }
 
 	//Reload
 	private void Reload () {
