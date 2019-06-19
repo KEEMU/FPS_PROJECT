@@ -1,8 +1,8 @@
 using System;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Data/Enemy Data", fileName = "Data/Enemy Data")]
-public class EnemyAttribute : ScriptableObject
+[CreateAssetMenu(menuName = "Data/Enemy Data/Enemy Attributes", fileName = "Enemy Attributes")]
+public class EnemyAttributes : ScriptableObject
 {
     public int HP;
     public float speed;

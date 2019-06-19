@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyStateMachine : MonoBehaviour
+public class EnemyStateMachine
 {
     private IEnemyState currentState = null;
     public IEnemyState CurrentState { get => currentState; }
@@ -19,11 +19,12 @@ public class EnemyStateMachine : MonoBehaviour
         return state;
     }
 
-    internal bool RegisterState(IEnemyState state)
+    internal bool RegisterState(IEnemyState state, Enemy enemy)
     {
         if (state == null) return false;
         if (stateDictionary.ContainsKey(state.GetState())) return false;
         stateDictionary.Add(state.GetState(), state);
+        state.Enemy = enemy;
         return true;
     }
 
@@ -34,7 +35,10 @@ public class EnemyStateMachine : MonoBehaviour
         stateDictionary.TryGetValue(to, out newState);
         if (newState == null) return false;
         IEnemyState oldState = currentState;
-        oldState.OnExit();
+        if (oldState != null)
+        {
+            oldState.OnExit();
+        }
         currentState = newState;
         newState.OnEnter();
         return true;

@@ -220,6 +220,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43ab63bf07a7bd84b8dd0bf0938c2416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachine: {fileID: 0}
-  wanderingState: {fileID: 0}
-  attackingState: {fileID: 0}
+  enemyAttribute: {fileID: 11400000, guid: 3f6323140693ba447a3da87d76cd6691, type: 2}
+  wanderingState: {fileID: 11400000, guid: c766809d66957154eadb78c7256f9276, type: 2}
+  attackingState: {fileID: 11400000, guid: b8a0dc855eb6a7849b24c801fd931742, type: 2}
