@@ -4,7 +4,9 @@ using System.Collections;
 // ----- Low Poly FPS Pack Free Version -----
 public class BulletScript : MonoBehaviour {
 
-	[Range(5, 100)]
+    public int Damage { get; private set; }
+
+    [Range(5, 100)]
 	[Tooltip("After how long time should the bullet prefab be destroyed?")]
 	public float destroyAfter;
 	[Tooltip("If enabled the bullet destroys on impact")]
@@ -19,8 +21,9 @@ public class BulletScript : MonoBehaviour {
 
 	private void Start () 
 	{
-		//Start destroy timer
-		StartCoroutine (DestroyAfter ());
+        //Start destroy timer
+        StartCoroutine(DestroyAfter());
+        Damage = 36;
 	}
 
 	//If the bullet collides with anything
