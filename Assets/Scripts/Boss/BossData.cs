@@ -1,20 +1,23 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 [CreateAssetMenu(menuName = "Data/Enemy Data/Boss", fileName = "Boss")]
-public class BossAttributes : ScriptableObject
+[Serializable]
+public class BossData : ScriptableObject
 {
-    public BossAttribute giantRobot;
+    public BossAttribute bossAttribute;
 }
 
 [Serializable]
-public struct BossAttribute
+public class BossAttribute
 {
     public string name;
     public int HP;
     public float speed;
-    public BossSkill[] skills;
+    public int phase;
+    public List<BossSkill> skills;
 }
 
 [Serializable]
@@ -25,8 +28,17 @@ public struct BossSkill
     {
         skillEvent = new UnityEvent();
     }
-    public string name;
     public int cooldown;
     public float chance;
     public float triggerDistance;
+    [EnumFlags]
+    public BossPhase triggerPhase;
+}
+
+[System.Flags]
+public enum BossPhase : int
+{
+    Phase1 = 1,
+    Phase2 = 2,
+    Phase3 = 4,
 }

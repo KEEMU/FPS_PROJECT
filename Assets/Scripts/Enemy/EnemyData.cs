@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Data/Enemy Data/Enemy Attributes", fileName = "Enemy Attributes")]
-public class EnemyAttributes : ScriptableObject
+public class EnemyData : ScriptableObject
 {
     public EnemyAttribute[] attributes;
 }

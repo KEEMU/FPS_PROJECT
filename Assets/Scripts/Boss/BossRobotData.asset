@@ -9,20 +9,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50ba4ef65a416584bba7268bd16c946e, type: 3}
-  m_Name: Boss
+  m_Script: {fileID: 11500000, guid: 01b64ac00ae1dc74f96c1e39b1b49bdf, type: 3}
+  m_Name: BossRobotData
   m_EditorClassIdentifier: 
-  giantRobot:
-    name: Robot
-    HP: 0
-    speed: 0
+  bossAttribute:
+    name: 1
+    HP: 1
+    speed: 1
+    phase: 1
     skills:
     - skillEvent:
         m_PersistentCalls:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      name: 
-      cooldown: 0
-      chance: 0
-      damage: 0
+      cooldown: 1
+      chance: 1
+      triggerDistance: 1
+      triggerPhase: 2

@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
 {
     [HideInInspector]
     public EnemyStateMachine stateMachine = null;
-    [SerializeField] private EnemyAttributes enemyAttribute;
+    [SerializeField] private EnemyData enemyAttribute;
     [Header("States")]
     [SerializeField] private WanderingState wanderingState;
     [SerializeField] private AttackingState attackingState;
