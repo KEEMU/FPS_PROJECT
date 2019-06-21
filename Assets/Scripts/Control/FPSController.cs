@@ -19,6 +19,8 @@ public class FPSController : MonoBehaviour
     private AudioSource _audioSource;
     private bool _isGrounded;
 
+    private float height;
+
     private float minVerticalAngle = -90f;
     private float maxVerticalAngle = 90f;
     private float jumpForce = 35f;
@@ -30,6 +32,7 @@ public class FPSController : MonoBehaviour
         _collider = GetComponent<CapsuleCollider>();
         _audioSource = GetComponent<AudioSource>();
         _rigidbody.freezeRotation = true;
+        height = _collider.height;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -38,6 +41,7 @@ public class FPSController : MonoBehaviour
     void Update()
     {
         MoveCharacter();
+        Crouch();
         Jump();
         RotateCameraAndCharacter();
     }
@@ -118,6 +122,16 @@ public class FPSController : MonoBehaviour
         }
         _isGrounded = false;
         _rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+    }
+
+    private void Crouch()
+    {
+        if (!Input.GetKey(KeyCode.LeftControl))
+        {
+            _collider.height = height;
+            return;
+        }
+        _collider.height = height / 2;
     }
 
     //private void PlayFootstepSounds()
