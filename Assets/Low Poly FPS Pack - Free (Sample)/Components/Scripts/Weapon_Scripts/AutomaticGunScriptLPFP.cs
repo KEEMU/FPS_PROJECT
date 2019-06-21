@@ -185,7 +185,6 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 
         defaultFov = gunCamera.fieldOfView;
         aimFov = defaultFov - 15f;
-
 	}
 
 	private void LateUpdate () {
@@ -442,8 +441,8 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
             }
         }
 
-		//Inspect weapon when F key is pressed
-		//if (Input.GetKeyDown (KeyCode.F)) 
+		//Inspect weapon when T key is pressed
+		//if (Input.GetKeyDown (KeyCode.T)) 
 		//{
 		//	anim.SetTrigger ("Inspect");
 		//}
