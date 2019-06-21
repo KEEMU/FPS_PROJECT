@@ -16,7 +16,7 @@ public class Crosshair : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Pointer();
+        //Pointer();
     }
     private void OnGUI()
     {

@@ -5,8 +5,10 @@ using UnityEngine.UI;
 // ----- Low Poly FPS Pack Free Version -----
 public class HandgunScriptLPFP : MonoBehaviour {
 
-	//Animator component attached to weapon
-	Animator anim;
+    PlayerProperties properties;
+
+    //Animator component attached to weapon
+    Animator anim;
 
 	[Header("Gun Camera")]
 	//Main gun camera
@@ -164,9 +166,10 @@ public class HandgunScriptLPFP : MonoBehaviour {
 		currentAmmo = ammo;
 
 		muzzleflashLight.enabled = false;
-	}
+        properties = GetComponentInParent<PlayerProperties>();
+    }
 
-	private void Start () {
+    private void Start () {
 		//Save the weapon name
 		storedWeaponName = weaponName;
 		////Get weapon name from string to text
@@ -182,6 +185,12 @@ public class HandgunScriptLPFP : MonoBehaviour {
 
         defaultFov = gunCamera.fieldOfView;
         aimFov = defaultFov - 15f;
+        properties.updateAmmo.Invoke(currentAmmo, ammo);
+    }
+
+    private void OnEnable()
+    {
+        properties.updateAmmo.Invoke(currentAmmo, ammo);
     }
 
     private void LateUpdate () {
@@ -403,13 +412,14 @@ public class HandgunScriptLPFP : MonoBehaviour {
 			Instantiate (Prefabs.casingPrefab, 
 				Spawnpoints.casingSpawnPoint.transform.position, 
 				Spawnpoints.casingSpawnPoint.transform.rotation);
-		}
+            properties.updateAmmo.Invoke(currentAmmo, ammo);
+        }
 
-		////Inspect weapon when pressing T key
-		//if (Input.GetKeyDown (KeyCode.T)) 
-		//{
-		//	anim.SetTrigger ("Inspect");
-		//}
+        ////Inspect weapon when pressing T key
+        //if (Input.GetKeyDown (KeyCode.T)) 
+        //{
+        //	anim.SetTrigger ("Inspect");
+        //}
 
         /*
 		//Toggle weapon holster when pressing E key
@@ -443,8 +453,8 @@ public class HandgunScriptLPFP : MonoBehaviour {
 		}
         */
 
-		//Reload 
-		if (Input.GetKeyDown (KeyCode.R) && !isReloading && !isInspecting) 
+        //Reload 
+        if (Input.GetKeyDown (KeyCode.R) && !isReloading && !isInspecting) 
 		{
 			//Reload
 			Reload ();
@@ -534,10 +544,11 @@ public class HandgunScriptLPFP : MonoBehaviour {
 		//Restore ammo when reloading
 		currentAmmo = ammo;
 		outOfAmmo = false;
-	}
+        properties.updateAmmo.Invoke(currentAmmo, ammo);
+    }
 
-	//Reload
-	private void Reload () {
+    //Reload
+    private void Reload () {
 		
 		if (outOfAmmo == true) 
 		{
@@ -576,10 +587,11 @@ public class HandgunScriptLPFP : MonoBehaviour {
 		//Restore ammo when reloading
 		currentAmmo = ammo;
 		outOfAmmo = false;
-	}
+        properties.updateAmmo.Invoke(currentAmmo, ammo);
+    }
 
-	//Enable bullet in mag renderer after set amount of time
-	private IEnumerator ShowBulletInMag () {
+    //Enable bullet in mag renderer after set amount of time
+    private IEnumerator ShowBulletInMag () {
 		//Wait set amount of time before showing bullet in mag
 		yield return new WaitForSeconds (showBulletInMagDelay);
 		bulletInMagRenderer.GetComponent<SkinnedMeshRenderer> ().enabled = true;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public int Damage { get; private set; }
+    public int Damage { get; set; }
 
     [Range(1, 10)]
     [Tooltip("After how long time should the bullet prefab be destroyed?")]

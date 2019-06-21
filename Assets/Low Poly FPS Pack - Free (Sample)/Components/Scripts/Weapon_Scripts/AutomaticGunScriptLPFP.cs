@@ -5,6 +5,8 @@ using UnityEngine.UI;
 // ----- Low Poly FPS Pack Free Version -----
 public class AutomaticGunScriptLPFP : MonoBehaviour {
 
+    PlayerProperties properties;
+
 	//Animator component attached to weapon
 	Animator anim;
 
@@ -166,9 +168,10 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 		currentAmmo = ammo;
 
 		muzzleflashLight.enabled = false;
-	}
+        properties = GetComponentInParent<PlayerProperties>();
+    }
 
-	private void Start () {
+    private void Start () {
 		
 		//Save the weapon name
 		storedWeaponName = weaponName;
@@ -185,9 +188,15 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 
         defaultFov = gunCamera.fieldOfView;
         aimFov = defaultFov - 15f;
-	}
+        properties.updateAmmo.Invoke(currentAmmo, ammo);
+    }
 
-	private void LateUpdate () {
+    private void OnEnable()
+    {
+        properties.updateAmmo.Invoke(currentAmmo, ammo);
+    }
+
+    private void LateUpdate () {
 		
 		//Weapon sway
 		if (weaponSway == true) 
@@ -437,7 +446,8 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 				Instantiate (Prefabs.casingPrefab, 
 					Spawnpoints.casingSpawnPoint.transform.position, 
 					Spawnpoints.casingSpawnPoint.transform.rotation);
-                EventManager.TriggerEvent("Fire");
+                //EventManager.TriggerEvent("Fire");
+                properties.updateAmmo.Invoke(currentAmmo, ammo);
             }
         }
 
@@ -550,7 +560,8 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 		//Restore ammo when reloading
 		currentAmmo = ammo;
 		outOfAmmo = false;
-        EventManager.TriggerEvent("Change");
+        //EventManager.TriggerEvent("Change");
+        properties.updateAmmo.Invoke(currentAmmo, ammo);
     }
 
 	//Reload
@@ -593,10 +604,11 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 		//Restore ammo when reloading
 		currentAmmo = ammo;
 		outOfAmmo = false;
-	}
+        properties.updateAmmo.Invoke(currentAmmo, ammo);
+    }
 
-	//Enable bullet in mag renderer after set amount of time
-	private IEnumerator ShowBulletInMag () {
+    //Enable bullet in mag renderer after set amount of time
+    private IEnumerator ShowBulletInMag () {
 		
 		//Wait set amount of time before showing bullet in mag
 		yield return new WaitForSeconds (showBulletInMagDelay);
