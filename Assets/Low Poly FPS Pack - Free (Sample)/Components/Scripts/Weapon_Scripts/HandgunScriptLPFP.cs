@@ -112,11 +112,11 @@ public class HandgunScriptLPFP : MonoBehaviour {
 	//Audio source used for shoot sound
 	public AudioSource shootAudioSource;
 
-	[Header("UI Components")]
-	public Text timescaleText;
-	public Text currentWeaponText;
-	public Text currentAmmoText;
-	public Text totalAmmoText;
+	//[Header("UI Components")]
+	//public Text timescaleText;
+	//public Text currentWeaponText;
+	//public Text currentAmmoText;
+	//public Text totalAmmoText;
 
 	[System.Serializable]
 	public class prefabs
@@ -169,19 +169,22 @@ public class HandgunScriptLPFP : MonoBehaviour {
 	private void Start () {
 		//Save the weapon name
 		storedWeaponName = weaponName;
-		//Get weapon name from string to text
-		currentWeaponText.text = weaponName;
-		//Set total ammo text from total ammo int
-		totalAmmoText.text = ammo.ToString();
+		////Get weapon name from string to text
+		//currentWeaponText.text = weaponName;
+		////Set total ammo text from total ammo int
+		//totalAmmoText.text = ammo.ToString();
 
 		//Weapon sway
 		initialSwayPosition = transform.localPosition;
 
 		//Set the shoot sound to audio source
 		shootAudioSource.clip = SoundClips.shootSound;
-	}
 
-	private void LateUpdate () {
+        defaultFov = gunCamera.fieldOfView;
+        aimFov = defaultFov - 15f;
+    }
+
+    private void LateUpdate () {
 		//Weapon sway
 		if (weaponSway == true) {
 			float movementX = -Input.GetAxis ("Mouse X") * swayAmount;
@@ -239,6 +242,7 @@ public class HandgunScriptLPFP : MonoBehaviour {
 			randomMuzzleflashValue = Random.Range (minRandomValue, maxRandomValue);
 		}
 
+        /*
 		//Timescale settings
 		//Change timescale to normal when 1 key is pressed
 		if (Input.GetKeyDown (KeyCode.Alpha1)) 
@@ -270,9 +274,10 @@ public class HandgunScriptLPFP : MonoBehaviour {
 			Time.timeScale = 0.0f;
 			timescaleText.text = "0.0";
 		}
+        */
 
-		//Set current ammo text from ammo int
-		currentAmmoText.text = currentAmmo.ToString ();
+		////Set current ammo text from ammo int
+		//currentAmmoText.text = currentAmmo.ToString ();
 
 		//Continosuly check which animation 
 		//is currently playing
@@ -282,15 +287,17 @@ public class HandgunScriptLPFP : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Q) && !isInspecting) 
 		{
 			anim.Play ("Knife Attack 1", 0, 0f);
-		}
-		//Play knife attack 2 animation when F key is pressed
-		if (Input.GetKeyDown (KeyCode.F) && !isInspecting) 
+            StartCoroutine(KnifeDamage(0.6f, 0.1f, 100));
+        }
+        //Play knife attack 2 animation when F key is pressed
+        if (Input.GetKeyDown (KeyCode.F) && !isInspecting) 
 		{
 			anim.Play ("Knife Attack 2", 0, 0f);
-		}
-			
-		//Throw grenade when pressing G key
-		if (Input.GetKeyDown (KeyCode.G) && !isInspecting) 
+            StartCoroutine(KnifeDamage(0.3f, 0.3f, 50));
+        }
+
+        //Throw grenade when pressing G key
+        if (Input.GetKeyDown (KeyCode.G) && !isInspecting) 
 		{
 			StartCoroutine (GrenadeSpawnDelay ());
 			//Play grenade throw animation
@@ -300,8 +307,8 @@ public class HandgunScriptLPFP : MonoBehaviour {
 		//If out of ammo
 		if (currentAmmo == 0) 
 		{
-			//Show out of ammo text
-			currentWeaponText.text = "OUT OF AMMO";
+			////Show out of ammo text
+			//currentWeaponText.text = "OUT OF AMMO";
 			//Toggle bool
 			outOfAmmo = true;
 			//Auto reload if true
@@ -317,8 +324,8 @@ public class HandgunScriptLPFP : MonoBehaviour {
 		} 
 		else 
 		{
-			//When ammo is full, show weapon name again
-			currentWeaponText.text = storedWeaponName.ToString ();
+			////When ammo is full, show weapon name again
+			//currentWeaponText.text = storedWeaponName.ToString ();
 			//Toggle bool
 			outOfAmmo = false;
 			//anim.SetBool ("Out Of Ammo", false);
@@ -398,12 +405,13 @@ public class HandgunScriptLPFP : MonoBehaviour {
 				Spawnpoints.casingSpawnPoint.transform.rotation);
 		}
 
-		//Inspect weapon when pressing T key
-		if (Input.GetKeyDown (KeyCode.T)) 
-		{
-			anim.SetTrigger ("Inspect");
-		}
+		////Inspect weapon when pressing T key
+		//if (Input.GetKeyDown (KeyCode.T)) 
+		//{
+		//	anim.SetTrigger ("Inspect");
+		//}
 
+        /*
 		//Toggle weapon holster when pressing E key
 		if (Input.GetKeyDown (KeyCode.E) && !hasBeenHolstered) 
 		{
@@ -433,6 +441,7 @@ public class HandgunScriptLPFP : MonoBehaviour {
 		{
 			anim.SetBool ("Holster", false);
 		}
+        */
 
 		//Reload 
 		if (Input.GetKeyDown (KeyCode.R) && !isReloading && !isInspecting) 
@@ -609,5 +618,20 @@ public class HandgunScriptLPFP : MonoBehaviour {
 			isInspecting = false;
 		}
 	}
+
+    IEnumerator KnifeDamage(float waitTime, float range, int damage)
+    {
+        yield return new WaitForSeconds(waitTime);
+        RaycastHit hit;
+        Physics.SphereCast(Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)), range, out hit, 1f);
+        if (hit.collider != null)
+        {
+            var s = hit.collider.GetComponent<Damageable>();
+            if (s != null)
+            {
+                s.Damage(damage);
+            }
+        }
+    }
 }
 // ----- Low Poly FPS Pack Free Version -----

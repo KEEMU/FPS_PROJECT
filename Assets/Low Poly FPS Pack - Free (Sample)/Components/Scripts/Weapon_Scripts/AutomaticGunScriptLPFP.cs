@@ -185,7 +185,6 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 
         defaultFov = gunCamera.fieldOfView;
         aimFov = defaultFov - 15f;
-
 	}
 
 	private void LateUpdate () {
@@ -297,15 +296,27 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Q) && !isInspecting) 
 		{
 			anim.Play ("Knife Attack 1", 0, 0f);
+            StartCoroutine(KnifeDamage(0.6f, 0.1f, 100));
 		}
 		//Play knife attack 2 animation when F key is pressed
 		if (Input.GetKeyDown (KeyCode.F) && !isInspecting) 
 		{
 			anim.Play ("Knife Attack 2", 0, 0f);
-		}
+            StartCoroutine(KnifeDamage(0.3f, 0.3f, 50));
+            //RaycastHit hit;
+            //Physics.SphereCast(Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)), 0.5f, out hit, 1.5f);
+            //if (hit.collider != null)
+            //{
+            //    var s = hit.collider.GetComponent<Damageable>();
+            //    if (s != null)
+            //    {
+            //        s.Damage(50);
+            //    }
+            //}
+        }
 
-		//Throw grenade when pressing G key
-		if (Input.GetKeyDown (KeyCode.G) && !isInspecting) 
+        //Throw grenade when pressing G key
+        if (Input.GetKeyDown (KeyCode.G) && !isInspecting) 
 		{
 			StartCoroutine (GrenadeSpawnDelay ());
 			//Play grenade throw animation
@@ -430,11 +441,11 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
             }
         }
 
-		//Inspect weapon when F key is pressed
-		if (Input.GetKeyDown (KeyCode.F)) 
-		{
-			anim.SetTrigger ("Inspect");
-		}
+		//Inspect weapon when T key is pressed
+		//if (Input.GetKeyDown (KeyCode.T)) 
+		//{
+		//	anim.SetTrigger ("Inspect");
+		//}
 
         /*
 		//Toggle weapon holster when E key is pressed
@@ -625,5 +636,20 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 			isInspecting = false;
 		}
 	}
+
+    IEnumerator KnifeDamage(float waitTime,float range,int damage)
+    {
+        yield return new WaitForSeconds(waitTime);
+        RaycastHit hit;
+        Physics.SphereCast(Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)), range, out hit, 1f);
+        if (hit.collider != null)
+        {
+            var s = hit.collider.GetComponent<Damageable>();
+            if (s != null)
+            {
+                s.Damage(damage);
+            }
+        }
+    }
 }
 // ----- Low Poly FPS Pack Free Version -----
