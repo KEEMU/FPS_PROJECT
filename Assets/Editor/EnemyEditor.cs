@@ -1,18 +1,17 @@
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(Enemy))]
+[CustomPropertyDrawer(typeof(EnemyData))]
 [CanEditMultipleObjects]
-public class EnemyEditor : Editor
+public class EnemyEditor : PropertyDrawer
 {
-    public override void OnInspectorGUI()
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
-        serializedObject.Update();
-        EditorGUILayout.PropertyField(serializedObject.FindProperty("enemyAttribute"), true);
-        EditorGUILayout.HelpBox("Set separate enemy file for each.", MessageType.Info);
-        EditorGUILayout.PropertyField(serializedObject.FindProperty("wanderingState"), true);
-        EditorGUILayout.PropertyField(serializedObject.FindProperty("attackingState"), true);
+        property.serializedObject.Update();
 
-        serializedObject.ApplyModifiedProperties();
+        var attribute = property.FindPropertyRelative("attribute");
+        EditorGUILayout.PropertyField(attribute);
+
+        property.serializedObject.ApplyModifiedProperties();
     }
 }
