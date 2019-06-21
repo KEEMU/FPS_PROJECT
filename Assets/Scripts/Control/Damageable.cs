@@ -22,32 +22,27 @@ public class Damageable : MonoBehaviour
         
     }
 
-    public void Damage(int d)
+    private void Damage(int d)
     {
         hitpoint -= d;
         if (hitpoint <= 0)
         {
-            Disable();
+            Destroy(gameObject);
         }
     }
 
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    var s = collision.collider.GetComponent<BulletScript>();
-    //    if (s!=null)
-    //    {
-    //        Damage(s.Damage);
-    //    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        var s = collision.collider.GetComponent<BulletScript>();
+        if (s!=null)
+        {
+            Damage(s.Damage);
+        }
         
-    //}
+    }
 
     public void ShowHealthBar()
     {
         print("debug.shb");
-    }
-
-    private void Disable()
-    {
-        Destroy(gameObject);
     }
 }

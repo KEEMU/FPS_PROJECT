@@ -29,15 +29,9 @@ public class BulletScript : MonoBehaviour {
 	//If the bullet collides with anything
 	private void OnCollisionEnter (Collision collision) 
 	{
-        var s = collision.collider.GetComponent<Damageable>();
-        if (s != null)
-        {
-            s.Damage(Damage);
-        }
-
-        //If destroy on impact is false, start 
-        //coroutine with random destroy timer
-        if (!destroyOnImpact) 
+		//If destroy on impact is false, start 
+		//coroutine with random destroy timer
+		if (!destroyOnImpact) 
 		{
 			StartCoroutine (DestroyTimer ());
 		}
