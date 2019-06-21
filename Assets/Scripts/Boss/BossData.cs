@@ -16,6 +16,7 @@ public class BossAttribute
     public string name;
     public int HP;
     public float speed;
+    [Range(1, 3)]
     public int phase;
     public List<BossSkill> skills;
 }

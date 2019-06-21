@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: BossRobotData
   m_EditorClassIdentifier: 
   bossAttribute:
-    name: 1
-    HP: 1
-    speed: 1
-    phase: 1
+    name: Robot
+    HP: 120
+    speed: 12
+    phase: 2
     skills:
     - skillEvent:
         m_PersistentCalls:
@@ -24,6 +24,6 @@ MonoBehaviour:
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
       cooldown: 1
-      chance: 1
-      triggerDistance: 1
-      triggerPhase: 2
+      chance: 12
+      triggerDistance: 0
+      triggerPhase: 3

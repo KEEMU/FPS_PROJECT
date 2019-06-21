@@ -57,7 +57,6 @@
   <ItemGroup>
      <Compile Include="Assets\Editor\BossAttributeDrawer.cs" />
      <Compile Include="Assets\Editor\BossEditor.cs" />
-     <Compile Include="Assets\Editor\BossSkillDrawer.cs" />
      <Compile Include="Assets\Editor\EnemyEditor.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>E:/OneDrive/Underguaduate Works/Game Design/Unity Projects/2019 VR Game/FPS_PROJECT/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
