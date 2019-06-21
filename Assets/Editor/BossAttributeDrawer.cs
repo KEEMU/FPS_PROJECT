@@ -43,7 +43,7 @@ public class BossAttributeDrawer : PropertyDrawer
             EditorGUILayout.PropertyField(phase, EditorStyles.boldFont);
 
             EditorGUILayout.HelpBox("Note that currently one skill only supports single executing method.", MessageType.Warning);
-            Initialize(skills);
+            Initialize(skills, phase.intValue);
 
             list.DoLayoutList();
 
@@ -51,7 +51,7 @@ public class BossAttributeDrawer : PropertyDrawer
         }
     }
 
-    void Initialize(SerializedProperty property)
+    void Initialize(SerializedProperty property, int phase)
     {
         if (list != null) return;
         list = new ReorderableList(property.serializedObject, property);
@@ -80,6 +80,11 @@ public class BossAttributeDrawer : PropertyDrawer
             EditorGUI.PropertyField(new Rect(cooldownField) { y = cooldownField.y + EditorGUIUtility.singleLineHeight * 2 + 6 }, element.FindPropertyRelative("triggerDistance"), GUIContent.none);
             EditorGUI.LabelField(new Rect(cooldownLabel) { y = cooldownLabel.y + EditorGUIUtility.singleLineHeight * 3 + 9 }, "Trigger Phase", EditorStyles.boldLabel);
             EditorGUI.PropertyField(new Rect(cooldownField) { x = cooldownField.x - 50, y = cooldownField.y + EditorGUIUtility.singleLineHeight * 3 + 9, width = 80 }, element.FindPropertyRelative("triggerPhase"), GUIContent.none);
+            int v = element.FindPropertyRelative("triggerPhase").intValue;
+            if (v >= Mathf.Pow(2, phase) || (v == -1 && phase != 3))
+            {
+                EditorGUILayout.HelpBox("Skill phase is larger than boss phase!", MessageType.Error);
+            }
         };
         list.drawHeaderCallback = (Rect rect) =>
         {

@@ -39,7 +39,7 @@ public struct BossSkill
 [System.Flags]
 public enum BossPhase : int
 {
-    Phase1 = 1,
-    Phase2 = 2,
-    Phase3 = 4,
+    Phase1 = 0x01,
+    Phase2 = 0x02,
+    Phase3 = 0x03,
 }
