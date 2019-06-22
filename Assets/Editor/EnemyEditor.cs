@@ -1,17 +1,15 @@
 using UnityEditor;
 using UnityEngine;
 
-[CustomPropertyDrawer(typeof(EnemyData))]
+[CustomEditor(typeof(EnemyData))]
 [CanEditMultipleObjects]
-public class EnemyEditor : PropertyDrawer
+public class EnemyEditor : Editor
 {
-    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+    public override void OnInspectorGUI()
     {
-        property.serializedObject.Update();
 
-        var attribute = property.FindPropertyRelative("attribute");
-        EditorGUILayout.PropertyField(attribute);
-
-        property.serializedObject.ApplyModifiedProperties();
+        serializedObject.Update();
+        base.OnInspectorGUI();
+        serializedObject.ApplyModifiedProperties();
     }
 }

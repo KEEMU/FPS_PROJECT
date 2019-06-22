@@ -12,11 +12,13 @@ public class EnemyData : ScriptableObject
 public struct EnemyAttribute
 {
     public string name;
+    public EnemyGenre genre;
     public int HP;
     public float speed;
-    public EnemyGenre genre;
+    public float detectRange;
+    public float meleeRange;
+    public float rangedRange;
 }
-
 
 public enum EnemyGenre : int
 {

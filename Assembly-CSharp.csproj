@@ -55,7 +55,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Bullet.cs" />
      <Compile Include="Assets\Low Poly FPS Pack - Free (Sample)\Components\Demo_Scene_Components\Scripts\DebrisScript.cs" />
      <Compile Include="Assets\Low Poly FPS Pack - Free (Sample)\Components\Demo_Scene_Components\Scripts\ExplosiveBarrelScript.cs" />
      <Compile Include="Assets\Low Poly FPS Pack - Free (Sample)\Components\Demo_Scene_Components\Scripts\TargetScript.cs" />
@@ -73,7 +72,6 @@
      <Compile Include="Assets\Scripts\Boss\BossData.cs" />
      <Compile Include="Assets\Scripts\Boss\BossRobot.cs" />
      <Compile Include="Assets\Scripts\Boss\EnumFlags.cs" />
-     <Compile Include="Assets\Scripts\Control\Crosshair.cs" />
      <Compile Include="Assets\Scripts\Control\Damageable.cs" />
      <Compile Include="Assets\Scripts\Control\FPSController.cs" />
      <Compile Include="Assets\Scripts\Enemy\AttackingState.cs" />
@@ -82,9 +80,11 @@
      <Compile Include="Assets\Scripts\Enemy\EnemyState.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemyStateMachine.cs" />
      <Compile Include="Assets\Scripts\Enemy\WanderingState.cs" />
-     <Compile Include="Assets\Weapon.cs" />
-     <Compile Include="Assets\WeaponActualizer.cs" />
-     <Compile Include="Assets\WeaponSpawner.cs" />
+     <Compile Include="Assets\Scripts\Weapon\AutomaticGun.cs" />
+     <Compile Include="Assets\Scripts\Weapon\Bullet.cs" />
+     <Compile Include="Assets\Scripts\Weapon\Crosshair.cs" />
+     <Compile Include="Assets\Scripts\Weapon\PlayerProperties.cs" />
+     <Compile Include="Assets\Scripts\Weapon\Weapon.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>E:/OneDrive/Underguaduate Works/Game Design/Unity Projects/2019 VR Game/FPS_PROJECT/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>

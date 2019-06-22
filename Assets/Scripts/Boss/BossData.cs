@@ -11,7 +11,7 @@ public class BossData : ScriptableObject
 }
 
 [Serializable]
-public class BossAttribute
+public struct BossAttribute
 {
     public string name;
     public int HP;

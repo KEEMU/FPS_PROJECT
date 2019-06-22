@@ -16,14 +16,14 @@ MonoBehaviour:
     name: Robot
     HP: 120
     speed: 12
-    phase: 2
+    phase: 3
     skills:
     - skillEvent:
         m_PersistentCalls:
           m_Calls: []
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      cooldown: 1
-      chance: 12
+      cooldown: 0
+      chance: 0
       triggerDistance: 0
-      triggerPhase: 3
+      triggerPhase: -1
