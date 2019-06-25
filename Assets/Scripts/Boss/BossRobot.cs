@@ -37,18 +37,14 @@ public class BossRobot : MonoBehaviour
         {
             cooldowns[i] += Time.deltaTime;
         }
-        int currentSkill = -1;
-        currentSkill = GetSkills();
-
-
-
+        ExecuteSkill(GetSkills());
     }
 
     int GetSkills()
     {
+        var t = 0f;
         for (int i = 0; i < skills.Count; i++)
         {
-            var t = 0f;
             if (cooldowns[i] > skills[i].cooldown)
             {
                 skillList.Add(skills[i].chance);
@@ -62,9 +58,18 @@ public class BossRobot : MonoBehaviour
                         r -= skillList[j];
                     }
                 }
+                return skillList.Count - 1;
             }
         }
         return -1;
+    }
+
+    void ExecuteSkill(int index)
+    {
+        if (index != -1)
+        {
+            skills[index].skillEvent.Invoke();
+        }
     }
 
     void FixedUpdate()

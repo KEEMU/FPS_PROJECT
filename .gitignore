@@ -1,0 +1,7 @@
+*.info
+
+*.resource
+
+Library 
+.vscode 
+temp

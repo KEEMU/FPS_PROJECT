@@ -14,6 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attribute:
     name: 
-    HP: 0
-    speed: 0
-    genre: 0
+    HP: -10
+    speed: 1.68
+    genre: 1
+    detectRange: 1
+    meleeRange: 1
+    rangedRange: 5
+    patrolStyle: 0
+    patrolRange: 0
+    chaseRange: 0.62

@@ -25,10 +25,6 @@ public struct BossAttribute
 public struct BossSkill
 {
     public UnityEvent skillEvent;
-    public void SkillEvent()
-    {
-        skillEvent = new UnityEvent();
-    }
     public int cooldown;
     public float chance;
     public float triggerDistance;

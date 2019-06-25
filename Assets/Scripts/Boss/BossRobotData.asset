@@ -16,7 +16,7 @@ MonoBehaviour:
     name: Robot
     HP: 120
     speed: 12
-    phase: 3
+    phase: 1
     skills:
     - skillEvent:
         m_PersistentCalls:
@@ -26,4 +26,4 @@ MonoBehaviour:
       cooldown: 0
       chance: 0
       triggerDistance: 0
-      triggerPhase: -1
+      triggerPhase: 1
