@@ -18,6 +18,7 @@ public struct BossAttribute
     public float speed;
     [Range(1, 3)]
     public int phase;
+    public float skillInterval;
     public List<BossSkill> skills;
 }
 
@@ -25,10 +26,6 @@ public struct BossAttribute
 public struct BossSkill
 {
     public UnityEvent skillEvent;
-    public void SkillEvent()
-    {
-        skillEvent = new UnityEvent();
-    }
     public int cooldown;
     public float chance;
     public float triggerDistance;

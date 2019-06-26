@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class AutomaticGunScriptLPFP : MonoBehaviour {
 
     PlayerProperties properties;
+    Crosshair crosshair;
 
 	//Animator component attached to weapon
 	Animator anim;
@@ -169,6 +170,7 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 
 		muzzleflashLight.enabled = false;
         properties = GetComponentInParent<PlayerProperties>();
+        crosshair = GetComponentInParent<Crosshair>();
     }
 
     private void Start () {
@@ -305,7 +307,7 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Q) && !isInspecting) 
 		{
 			anim.Play ("Knife Attack 1", 0, 0f);
-            StartCoroutine(KnifeDamage(0.6f, 0.1f, 100));
+            StartCoroutine(KnifeDamage(0.6f, 0.2f, 100));
 		}
 		//Play knife attack 2 animation when F key is pressed
 		if (Input.GetKeyDown (KeyCode.F) && !isInspecting) 

@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+
+    #region States
     [HideInInspector]
     public EnemyStateMachine stateMachine = null;
     [SerializeField] private EnemyData enemyAttribute;
     [Header("States")]
     [SerializeField] private WanderingState wanderingState;
     [SerializeField] private AttackingState attackingState;
+    #endregion
 
     private Rigidbody rb;
 

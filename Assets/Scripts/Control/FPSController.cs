@@ -16,6 +16,9 @@ public class FPSController : MonoBehaviour
 
     public float walkSpeed = 5.0f;
     public float runSpeed = 9.0f;
+    public float accel = 0.2f;
+    float runningSpeedRel;
+    Vector3 direction;
 
     private Rigidbody _rigidbody;
     private CapsuleCollider _collider;
@@ -26,7 +29,7 @@ public class FPSController : MonoBehaviour
 
     private float minVerticalAngle = -90f;
     private float maxVerticalAngle = 90f;
-    private float jumpForce = 35f;
+    private float jumpForce = 20f;
 
     // Start is called before the first frame update
     void Start()
@@ -45,10 +48,17 @@ public class FPSController : MonoBehaviour
     void Update()
     {
         Swap();
-        MoveCharacter();
         Crouch();
-        Jump();
+        //Jump();
         RotateCameraAndCharacter();
+    }
+
+    private void FixedUpdate()
+    {
+        MoveCharacter();
+        //CollisionDetect();
+        Jump();
+        _isGrounded = false;
     }
 
     private void RotateCameraAndCharacter()
@@ -105,18 +115,60 @@ public class FPSController : MonoBehaviour
         _isGrounded = true;
     }
 
-    private void FixedUpdate()
-    {
-        _isGrounded = false;
-    }
+    //private void CollisionDetect()
+    //{
+    //    RaycastHit hit;
+    //    Physics.SphereCast(_collider.center, _collider.radius, Vector3.down, out hit, _collider.height / 2 + 0.1f);
+    //    if (hit.collider==null)
+    //    {
+    //        return;
+    //    }
+    //    _isGrounded = true;
+    //    print("on");
+    //}
+
+    //private void OnDrawGizmos()
+    //{
+    //    Ray ray = new Ray(_collider.center, Vector3.down);
+    //    Gizmos.DrawRay(ray);
+    //    Gizmos.DrawWireSphere(_collider.center, 5);
+    //}
 
     private void MoveCharacter()
     {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
-        Vector3 direction = new Vector3(horizontal, 0, vertical).normalized;
-        var worldDirection = transform.TransformDirection(direction);
-        transform.Translate(direction * Time.deltaTime * (Input.GetKey(KeyCode.LeftShift) ? runSpeed : walkSpeed));
+        bool running = (Input.GetKey(KeyCode.LeftShift) && vertical > 0);
+        Vector3 speedDirection = new Vector3(horizontal, 0, vertical).normalized;
+        if (speedDirection != Vector3.zero)
+        {
+            direction += speedDirection * accel * (_isGrounded ? 1f : 0.2f);
+        }
+        if (direction.magnitude>1)
+        {
+            direction = direction.normalized;
+        }
+        if (Mathf.Abs(horizontal) < 0.1f && Mathf.Abs(vertical) < 0.1f)
+        {
+            direction *= 0.7f;
+        }
+        if (direction.magnitude<0.01f)
+        {
+            direction = Vector3.zero;
+        }
+        if (running)
+        {
+            runningSpeedRel += accel;
+        }
+        else
+        {
+            runningSpeedRel -= accel;
+        }
+        runningSpeedRel = Mathf.Clamp(runningSpeedRel, 0, 1);
+        float speed = Mathf.Lerp(walkSpeed, runSpeed, runningSpeedRel);
+        //var worldDirection = transform.TransformDirection(direction);
+        //_rigidbody.velocity = direction * speed;  
+        transform.Translate(direction * Time.fixedDeltaTime * speed);
     }
 
     private void Jump()

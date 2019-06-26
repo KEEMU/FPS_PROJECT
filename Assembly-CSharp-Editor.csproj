@@ -281,9 +281,6 @@
  <Reference Include="UnityEditor.Android.Extensions">
  <HintPath>D:/Unity/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
  </Reference>
- <Reference Include="UnityEditor.Advertisements">
- <HintPath>E:/OneDrive/Underguaduate Works/Game Design/Unity Projects/2019 VR Game/FPS_PROJECT/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
- </Reference>
  <Reference Include="Unity.Analytics.Editor">
  <HintPath>E:/OneDrive/Underguaduate Works/Game Design/Unity Projects/2019 VR Game/FPS_PROJECT/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
  </Reference>
@@ -292,9 +289,6 @@
  </Reference>
  <Reference Include="Unity.Analytics.Tracker">
  <HintPath>E:/OneDrive/Underguaduate Works/Game Design/Unity Projects/2019 VR Game/FPS_PROJECT/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.Purchasing">
- <HintPath>E:/OneDrive/Underguaduate Works/Game Design/Unity Projects/2019 VR Game/FPS_PROJECT/Library/PackageCache/com.unity.purchasing@2.0.6/Editor/UnityEditor.Purchasing.dll</HintPath>
  </Reference>
  <Reference Include="mscorlib">
  <HintPath>D:/Unity/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
