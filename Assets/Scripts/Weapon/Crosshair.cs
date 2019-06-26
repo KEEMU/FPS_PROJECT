@@ -1,22 +1,35 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class Crosshair : MonoBehaviour
 {
+    public UnityEvent hit;
+    bool onHit;
+    Color color;
+
     public Sprite crosshair;
     float size;
     // Start is called before the first frame update
     void Start()
     {
         size = Camera.main.pixelHeight / 20;
+        hit.AddListener(() => { onHit = true; });
     }
 
     // Update is called once per frame
     void Update()
     {
         //Pointer();
+        if (onHit)
+        {
+            {
+                //do sth
+            }
+            onHit = false;
+        }
     }
     private void OnGUI()
     {
@@ -47,4 +60,9 @@ public class Crosshair : MonoBehaviour
             }
         }
     }
+
+    //void OnHit()
+    //{
+    //    onHit = true;
+    //}
 }

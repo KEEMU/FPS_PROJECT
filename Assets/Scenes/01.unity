@@ -1785,5 +1785,15 @@ PrefabInstance:
       propertyPath: autoReload
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4735835584546689293, guid: 4d9371ab51e04af44a32ae546def3833,
+        type: 3}
+      propertyPath: reverbZoneMixCustomCurve.m_Curve.Array.data[0].value
+      value: 0.295
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735835584546689292, guid: 4d9371ab51e04af44a32ae546def3833,
+        type: 3}
+      propertyPath: accel
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d9371ab51e04af44a32ae546def3833, type: 3}
