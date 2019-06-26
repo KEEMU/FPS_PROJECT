@@ -146,7 +146,7 @@ public class FPSController : MonoBehaviour
         }
         if (direction.magnitude>1)
         {
-            direction = direction.normalized;
+            direction.Normalize();
         }
         if (Mathf.Abs(horizontal) < 0.1f && Mathf.Abs(vertical) < 0.1f)
         {
