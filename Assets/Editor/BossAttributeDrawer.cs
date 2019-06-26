@@ -14,6 +14,7 @@ public class BossAttributeDrawer : PropertyDrawer
         var hp = property.FindPropertyRelative("HP");
         var speed = property.FindPropertyRelative("speed");
         var phase = property.FindPropertyRelative("phase");
+        var skillInterval = property.FindPropertyRelative("skillInterval");
         var skills = property.FindPropertyRelative("skills");
         fold = EditorGUILayout.Foldout(fold, "Boss Data");
         if (fold)
@@ -34,13 +35,13 @@ public class BossAttributeDrawer : PropertyDrawer
                     EditorGUILayout.HelpBox("It is sugguested that boss HP not be under 100.", MessageType.Warning);
                 }
             }
-            EditorGUILayout.PropertyField(speed, EditorStyles.boldFont);
+            EditorGUILayout.PropertyField(speed);
             if (speed.floatValue < 0)
             {
                 EditorGUILayout.HelpBox("Speed must be over 0.", MessageType.Error);
             }
-            EditorGUILayout.PropertyField(phase, EditorStyles.boldFont);
-
+            EditorGUILayout.PropertyField(phase);
+            EditorGUILayout.PropertyField(skillInterval);
             EditorGUILayout.HelpBox("Note that currently one skill only supports single executing method.", MessageType.Warning);
             Initialize(skills);
 

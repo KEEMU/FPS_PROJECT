@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Enemy Data
   m_EditorClassIdentifier: 
   attribute:
-    name: 
+    name: Robot
     HP: -10
     speed: 1.68
     genre: 1
