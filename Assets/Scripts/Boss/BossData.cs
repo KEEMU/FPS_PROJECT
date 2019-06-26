@@ -18,6 +18,7 @@ public struct BossAttribute
     public float speed;
     [Range(1, 3)]
     public int phase;
+    public float skillInterval;
     public List<BossSkill> skills;
 }
 

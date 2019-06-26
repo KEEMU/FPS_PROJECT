@@ -105,3 +105,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossData: {fileID: 11400000, guid: cd2ce30ebef03174595704ba4c376cf8, type: 2}
+  bossName: {fileID: 0}
