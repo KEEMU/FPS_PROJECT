@@ -5833,7 +5833,7 @@ MonoBehaviour:
   maxSwayAmount: 0.06
   swaySmoothValue: 10
   sliderBackTimer: 1.58
-  autoReload: 0
+  autoReload: 1
   autoReloadDelay: 0.15
   ammo: 9
   bulletForce: 400
@@ -16923,9 +16923,11 @@ GameObject:
   - component: {fileID: 4735835584546689293}
   - component: {fileID: 4735835584546689328}
   - component: {fileID: 4735835584546689292}
+  - component: {fileID: 541313378}
+  - component: {fileID: 541313379}
   m_Layer: 8
   m_Name: FPS Controller
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17062,7 +17064,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0.295
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -17084,6 +17086,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 525a5c124fd84fd4d8e65ce3a54b969c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hit:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   crosshair: {fileID: 21300000, guid: b3e76a068a948184aa9a5ffe4d7c5fed, type: 3}
 --- !u!114 &4735835584546689292
 MonoBehaviour:
@@ -17102,6 +17109,33 @@ MonoBehaviour:
   - {fileID: 4735835584525362245}
   walkSpeed: 5
   runSpeed: 9
+  accel: 0.2
+--- !u!114 &541313378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4735835584546689294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c9fc038b8f2ad4591d618e4146931e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerUI: {fileID: 0}
+--- !u!114 &541313379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4735835584546689294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e482dc085963654fa41e7e2d69ddf1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBarPrefab: {fileID: 0}
 --- !u!1 &4735835584550638834
 GameObject:
   m_ObjectHideFlags: 0

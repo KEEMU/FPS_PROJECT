@@ -4,21 +4,28 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class AmmoUI : MonoBehaviour
+public class PlayerUI : MonoBehaviour
 {
     public UnityEvent updateAmmo;
+    public UnityEvent updateHP;
     public GameObject player;
     public Text totalAmmoText;
     public Text currentAmmoText;
-
-    //private AutomaticGunScriptLPFP LPFP;
+    public Text HitPointText;
     private PlayerProperties properties;
 
     private void Awake()
     {
-        //LPFP = player.GetComponent<AutomaticGunScriptLPFP>();
         properties = player.GetComponent<PlayerProperties>();
-        updateAmmo.AddListener(UpdateAmmo);
+        updateAmmo.AddListener(()=>
+        {
+            totalAmmoText.text = properties.MaxAmmo.ToString();
+            currentAmmoText.text = properties.CurrentAmmo.ToString();
+        });
+        updateHP.AddListener(() =>
+        {
+            HitPointText.text = properties.Hitpoint.ToString();
+        });
     }
 
     //private void OnEnable()
@@ -36,11 +43,5 @@ public class AmmoUI : MonoBehaviour
     //    totalAmmoText.text = LPFP.ammo.ToString();
     //    currentAmmoText.text = LPFP.ammo.ToString();
     //}
-
-    private void UpdateAmmo()
-    {
-        totalAmmoText.text = properties.MaxAmmo.ToString();
-        currentAmmoText.text = properties.CurrentAmmo.ToString();
-    }
 
 }

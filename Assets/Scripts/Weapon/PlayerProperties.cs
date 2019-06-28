@@ -10,25 +10,31 @@ public class PlayerProperties : MonoBehaviour
 
     }
     public UpdateAmmoEvent updateAmmo;
+    public class UpdateHPEvent:UnityEvent<int>
+    {
+
+    }
+    public UpdateHPEvent updateHP;
     public int Hitpoint { get; private set; }
     public int CurrentAmmo { get; private set; }
     public int MaxAmmo { get; private set; }
 
-    public AmmoUI ammoUI;
+    public PlayerUI playerUI;
 
     private void Awake()
     {
-        if (updateAmmo == null)
+        updateAmmo = new UpdateAmmoEvent();
+        updateHP = new UpdateHPEvent();
+        updateAmmo.AddListener((cur,max) =>
         {
-            updateAmmo = new UpdateAmmoEvent();
-        }
-        updateAmmo.AddListener(UpdateAmmo);
-    }
-
-    void UpdateAmmo(int cur,int max)
-    {
-        CurrentAmmo = cur;
-        MaxAmmo = max;
-        ammoUI.updateAmmo.Invoke();
+            CurrentAmmo = cur;
+            MaxAmmo = max;
+            playerUI.updateAmmo.Invoke();
+        });
+        updateHP.AddListener(hp =>
+        {
+            Hitpoint = hp;
+            playerUI.updateHP.Invoke();
+        });
     }
 }

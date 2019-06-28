@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public GameObject player;
     public int Damage { get; set; }
 
     [Range(1, 10)]
@@ -14,6 +15,7 @@ public class Bullet : MonoBehaviour
     {
         //Start destroy timer
         StartCoroutine(DestroyAfter());
+        player = GameObject.FindGameObjectWithTag("Player");
         Damage = 36;
     }
 
@@ -24,8 +26,8 @@ public class Bullet : MonoBehaviour
         if (s != null)
         {
             s.Damage(Damage);
+            player.GetComponent<Crosshair>().hit.Invoke();
         }
-
         Destroy(gameObject);
     }
 

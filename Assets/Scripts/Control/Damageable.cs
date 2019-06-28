@@ -5,48 +5,52 @@ using UnityEngine.UI;
 
 public class Damageable : MonoBehaviour
 {
-    public Image healthBar;
-    public string Name { get; private set; }
-    private int hitpoint;
+    [SerializeField]
+    Canvas healthBarPrefab;
+    Canvas canvas;
+    Slider healthBar;
+    public string Name { get; protected set; }
+    public int Hitpoint { get; protected set; }
+    public int MaxHitpoint { get; protected set; }
     
     // Start is called before the first frame update
     void Start()
     {
+        //healthBarPrefab = Resources.Load("Assets/Resources/HealthBar.prefab") as Canvas;
+
+        canvas = Instantiate(healthBarPrefab, gameObject.transform);
+        healthBar = FindObjectOfType<Slider>();
         Name = "01";
-        hitpoint = 100;
+        MaxHitpoint = 100;
+        Hitpoint = MaxHitpoint;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        canvas.enabled = false;
     }
 
-    public void Damage(int d)
+    public virtual void Damage(int d)
     {
-        hitpoint -= d;
-        if (hitpoint <= 0)
+        Hitpoint -= d;
+        if (Hitpoint <= 0)
         {
             Disable();
         }
     }
 
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    var s = collision.collider.GetComponent<BulletScript>();
-    //    if (s!=null)
-    //    {
-    //        Damage(s.Damage);
-    //    }
-        
-    //}
-
     public void ShowHealthBar()
     {
-        print("debug.shb");
+        Vector3 wPos = transform.position + new Vector3(0, GetComponent<Collider>().bounds.extents.y, 0) + Vector3.up;
+        Vector3 sPos = Camera.main.WorldToScreenPoint(wPos);
+        healthBar.transform.position = sPos;
+        healthBar.maxValue = MaxHitpoint;
+        healthBar.value = Hitpoint;
+        canvas.enabled = true;
     }
 
-    private void Disable()
+    protected virtual void Disable()
     {
         Destroy(gameObject);
     }

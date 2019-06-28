@@ -22,11 +22,12 @@ public class Crosshair : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Pointer();
+        Pointer();
         if (onHit)
         {
             {
                 //do sth
+                print("hit");
             }
             onHit = false;
         }
