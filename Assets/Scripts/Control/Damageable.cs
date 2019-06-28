@@ -1,13 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class Damageable : MonoBehaviour
 {
+    public UnityEvent showHealthBar;
     [SerializeField]
     Canvas healthBarPrefab;
     Canvas canvas;
+    bool canvasEnabled;
     Slider healthBar;
     public string Name { get; protected set; }
     public int Hitpoint { get; protected set; }
@@ -23,12 +26,19 @@ public class Damageable : MonoBehaviour
         Name = "01";
         MaxHitpoint = 100;
         Hitpoint = MaxHitpoint;
+        showHealthBar.AddListener(() => { canvasEnabled = true; });
+        canvasEnabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         canvas.enabled = false;
+        if (canvasEnabled)
+        {
+            ShowHealthBar();
+            canvasEnabled = false;
+        }
     }
 
     public virtual void Damage(int d)

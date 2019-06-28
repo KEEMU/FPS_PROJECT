@@ -15,13 +15,14 @@ public class Crosshair : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        size = Camera.main.pixelHeight / 20;
+        size = Camera.main.pixelHeight / 25;
         hit.AddListener(() => { onHit = true; });
     }
 
     // Update is called once per frame
     void Update()
     {
+        size = Camera.main.pixelHeight / 25;
         Pointer();
         if (onHit)
         {
@@ -57,7 +58,7 @@ public class Crosshair : MonoBehaviour
             var s = hit.collider.GetComponent<Damageable>();
             if (s!=null)
             {
-                s.ShowHealthBar();
+                s.showHealthBar.Invoke();
             }
         }
     }

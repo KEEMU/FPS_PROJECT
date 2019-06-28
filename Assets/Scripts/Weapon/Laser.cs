@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(LineRenderer))]
 public class Laser : MonoBehaviour
 {
-    int damage = 7;
+    int damage = 36;
     LineRenderer line;
     float lineWidth = 0.1f;
     float delay = 1.5f;
@@ -65,7 +65,7 @@ public class Laser : MonoBehaviour
             var d = hit.collider.GetComponent<Damageable>();
             if (d != null)
             {
-                d.Damage(100);
+                d.Damage(damage);
             }
         }
         yield return new WaitForSeconds(duration);
