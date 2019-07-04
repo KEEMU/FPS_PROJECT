@@ -195,32 +195,54 @@ public class FPSController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            for (int i = 0; i < arms.Count; i++)
-            {
-                if (i != 0)
-                {
-                    arms[i].SetActive(false);
-                }
-                else
-                {
-                    arms[i].SetActive(true);
-                    arm = arms[i].transform;
-                }
-            }
+            SetArm(0);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
+            SetArm(1);
+        }
+        if (Input.mouseScrollDelta.y!=0)
+        {
+            int active = 0;
             for (int i = 0; i < arms.Count; i++)
             {
-                if (i != 1)
+                if (arms[i].activeSelf)
                 {
-                    arms[i].SetActive(false);
+                    active = i;
+                    break;
                 }
-                else
-                {
-                    arms[i].SetActive(true);
-                    arm = arms[i].transform;
-                }
+            }
+            if (Input.mouseScrollDelta.y>0)
+            {
+                SetArm(--active);
+            }
+            else
+            {
+                SetArm(++active);
+            }
+        }
+    }
+
+    private void SetArm(int set)
+    {
+        if (set>=arms.Count)
+        {
+            set = 0;
+        }
+        else if (set<0)
+        {
+            set = arms.Count - 1;
+        }
+        for (int i = 0; i < arms.Count; i++)
+        {
+            if (i != set)
+            {
+                arms[i].SetActive(false);
+            }
+            else
+            {
+                arms[i].SetActive(true);
+                arm = arms[i].transform;
             }
         }
     }

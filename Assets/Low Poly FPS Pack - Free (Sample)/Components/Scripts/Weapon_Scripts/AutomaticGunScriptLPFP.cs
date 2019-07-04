@@ -8,8 +8,19 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
     PlayerProperties properties;
     Crosshair crosshair;
 
-	//Animator component attached to weapon
-	Animator anim;
+    float spread;
+    float minSpread = 1;
+    float maxSpread = 10;
+    float stepSpread = 1f;
+    float recoverSpread = 5;
+    float recoil;
+    float minRecoil = 0;
+    float maxRecoil = 8;
+    float stepRecoil = 1f;
+    float recoverRecoil = 4;
+
+    //Animator component attached to weapon
+    Animator anim;
 
 	[Header("Gun Camera")]
 	//Main gun camera
@@ -191,6 +202,9 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
         defaultFov = gunCamera.fieldOfView;
         aimFov = defaultFov - 15f;
         properties.updateAmmo.Invoke(currentAmmo, ammo);
+
+        spread = minSpread;
+        recoil = minRecoil;
     }
 
     private void OnEnable()
@@ -440,24 +454,48 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 					Spawnpoints.bulletSpawnPoint.transform.position,
 					Spawnpoints.bulletSpawnPoint.transform.rotation);
 
-				//Add velocity to the bullet
-				bullet.GetComponent<Rigidbody>().velocity = 
-					bullet.transform.forward * bulletForce;
+                Vector3 onSpread = Random.insideUnitCircle;
+                {
+                    onSpread.y /= 2;
+                    onSpread *= spread;
+                    onSpread.y += recoil;
+                    onSpread *= 0.01f;
+                    onSpread = Vector3.RotateTowards(onSpread, bullet.transform.forward, 1, 0);
+                }
+
+                //Add velocity to the bullet
+                bullet.GetComponent<Rigidbody>().velocity =
+                    (bullet.transform.forward + onSpread) * bulletForce;
 				
 				//Spawn casing prefab at spawnpoint
 				Instantiate (Prefabs.casingPrefab, 
 					Spawnpoints.casingSpawnPoint.transform.position, 
 					Spawnpoints.casingSpawnPoint.transform.rotation);
                 //EventManager.TriggerEvent("Fire");
+
                 properties.updateAmmo.Invoke(currentAmmo, ammo);
+                {
+                    recoil += stepRecoil;
+                    spread += stepSpread;
+                    recoil = Mathf.Clamp(recoil, minRecoil, maxRecoil);
+                    spread = Mathf.Clamp(spread, minSpread, maxSpread);
+                }
             }
         }
 
-		//Inspect weapon when T key is pressed
-		//if (Input.GetKeyDown (KeyCode.T)) 
-		//{
-		//	anim.SetTrigger ("Inspect");
-		//}
+        //recoil&spread
+        {
+            recoil -= recoverRecoil * Time.deltaTime;
+            spread -= recoverSpread * Time.deltaTime;
+            recoil = Mathf.Clamp(recoil, minRecoil, maxRecoil);
+            spread = Mathf.Clamp(spread, minSpread, maxSpread);
+        }
+
+        //Inspect weapon when T key is pressed
+        //if (Input.GetKeyDown (KeyCode.T)) 
+        //{
+        //	anim.SetTrigger ("Inspect");
+        //}
 
         /*
 		//Toggle weapon holster when E key is pressed
@@ -490,8 +528,8 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 		}
         */
 
-		//Reload 
-		if (Input.GetKeyDown (KeyCode.R) && !isReloading && !isInspecting) 
+        //Reload 
+        if (Input.GetKeyDown (KeyCode.R) && !isReloading && !isInspecting) 
 		{
 			//Reload
 			Reload ();

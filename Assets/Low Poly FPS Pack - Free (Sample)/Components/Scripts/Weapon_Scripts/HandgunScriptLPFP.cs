@@ -8,6 +8,17 @@ public class HandgunScriptLPFP : MonoBehaviour {
     PlayerProperties properties;
     Crosshair crosshair;
 
+    float spread;
+    float minSpread=1;
+    float maxSpread=3;
+    float stepSpread=1f;
+    float recoverSpread=3;
+    float recoil;
+    float minRecoil=0;
+    float maxRecoil=3;
+    float stepRecoil=1f;
+    float recoverRecoil=6;
+
     //Animator component attached to weapon
     Animator anim;
 
@@ -188,6 +199,9 @@ public class HandgunScriptLPFP : MonoBehaviour {
         defaultFov = gunCamera.fieldOfView;
         aimFov = defaultFov - 15f;
         properties.updateAmmo.Invoke(currentAmmo, ammo);
+
+        spread = minSpread;
+        recoil = minRecoil;
     }
 
     private void OnEnable()
@@ -406,15 +420,39 @@ public class HandgunScriptLPFP : MonoBehaviour {
 				Spawnpoints.bulletSpawnPoint.transform.position,
 				Spawnpoints.bulletSpawnPoint.transform.rotation);
 
-			//Add velocity to the bullet
-			bullet.GetComponent<Rigidbody>().velocity = 
-			bullet.transform.forward * bulletForce;
+            Vector3 onSpread = Random.insideUnitCircle;
+            {
+                onSpread.y /= 2;
+                onSpread *= spread;
+                onSpread.y += recoil;
+                onSpread *= 0.01f;
+                onSpread= Vector3.RotateTowards(onSpread, bullet.transform.forward, 1, 0);
+            }
+
+            //Add velocity to the bullet
+            bullet.GetComponent<Rigidbody>().velocity = 
+			    (bullet.transform.forward + onSpread) * bulletForce;
 
 			//Spawn casing prefab at spawnpoint
 			Instantiate (Prefabs.casingPrefab, 
 				Spawnpoints.casingSpawnPoint.transform.position, 
 				Spawnpoints.casingSpawnPoint.transform.rotation);
+
             properties.updateAmmo.Invoke(currentAmmo, ammo);
+            {
+                recoil += stepRecoil;
+                spread += stepSpread;
+                recoil = Mathf.Clamp(recoil, minRecoil, maxRecoil);
+                spread = Mathf.Clamp(spread, minSpread, maxSpread);
+            }
+        }
+
+        //recoil&spread
+        {
+            recoil -= recoverRecoil * Time.deltaTime;
+            spread -= recoverSpread * Time.deltaTime;
+            recoil = Mathf.Clamp(recoil, minRecoil, maxRecoil);
+            spread = Mathf.Clamp(spread, minSpread, maxSpread);
         }
 
         ////Inspect weapon when pressing T key
