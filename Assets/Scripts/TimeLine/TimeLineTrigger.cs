@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class TimeLineTrigger : MonoBehaviour
 {
+    public TimeLineController controller;
     // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        controller.OnPlayerEnterZone();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerExit(Collider other)
     {
-        
+        controller.OnPlayerExitZone();
     }
 }

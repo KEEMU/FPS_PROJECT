@@ -1,0 +1,468 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5580702480767882519
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0200e49f1e300be449a6439b69b32ae1, type: 3}
+  m_Name: ConversationPlayable
+  m_EditorClassIdentifier: 
+  canvasObject:
+    exposedName: 68a66b5068bfd47478af8be6377c16e4
+    defaultValue: {fileID: 0}
+  dialogueTextDisplay:
+    exposedName: 23d4cd39313a12445aa3a4a1eed6efa4
+    defaultValue: {fileID: 0}
+  fontAsset: {fileID: 11400000, guid: 55265800d1b89f54c8d8291107fc3797, type: 2}
+  dialogueString: "\u4E2D\u5FC3\u533A\u662F\u4E00\u5207\u7684\u6E90\u5934\uFF0C\u4F60\u624B\u4E2D\u7684\u662F\u5E0C\u671B\u3002"
+  dialogueBoxDisplay:
+    exposedName: ce8b9f198be9b864e851937fef99f2a3
+    defaultValue: {fileID: 0}
+  dialogueBoxColor: {r: 0.023529412, g: 1, b: 0.9529412, a: 0.78431374}
+--- !u!114 &-5157125709994875844
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82cd92ffc29383742932b27ca414c80f, type: 3}
+  m_Name: Playable Track
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_AnimClip: {fileID: 0}
+  m_Locked: 0
+  m_Muted: 0
+  m_CustomPlayableFullTypename: 
+  m_Curves: {fileID: 0}
+  m_Parent: {fileID: -2172601391049815309}
+  m_Children: []
+  m_Clips:
+  - m_Version: 1
+    m_Start: 4.1000000000000005
+    m_ClipIn: 0
+    m_Asset: {fileID: 1728505587839825486}
+    m_Duration: 1.3999999999999995
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: -5157125709994875844}
+    m_EaseInDuration: 0
+    m_EaseOutDuration: 0
+    m_BlendInDuration: -1
+    m_BlendOutDuration: -1
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 0
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 0
+    m_PreExtrapolationTime: 0
+    m_DisplayName: ConversationPlayable
+  - m_Version: 1
+    m_Start: 5.5
+    m_ClipIn: 0
+    m_Asset: {fileID: 5585023783285230094}
+    m_Duration: 1.3999999999999995
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: -5157125709994875844}
+    m_EaseInDuration: 0
+    m_EaseOutDuration: 0
+    m_BlendInDuration: -1
+    m_BlendOutDuration: -1
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 0
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 0
+    m_PreExtrapolationTime: 0
+    m_DisplayName: ConversationPlayable
+  - m_Version: 1
+    m_Start: 6.8999999999999995
+    m_ClipIn: 0
+    m_Asset: {fileID: -1891584340542659697}
+    m_Duration: 2.499999999999999
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: -5157125709994875844}
+    m_EaseInDuration: 0
+    m_EaseOutDuration: 0
+    m_BlendInDuration: -1
+    m_BlendOutDuration: -1
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 0
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 0
+    m_PreExtrapolationTime: 0
+    m_DisplayName: ConversationPlayable
+  - m_Version: 1
+    m_Start: 2.1500000000000004
+    m_ClipIn: 0
+    m_Asset: {fileID: 486052241680040844}
+    m_Duration: 1.95
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: -5157125709994875844}
+    m_EaseInDuration: 0
+    m_EaseOutDuration: 0
+    m_BlendInDuration: -1
+    m_BlendOutDuration: -1
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 0
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 0
+    m_PreExtrapolationTime: 0
+    m_DisplayName: ConversationPlayable
+  - m_Version: 1
+    m_Start: 9.399999999999999
+    m_ClipIn: 0
+    m_Asset: {fileID: 1248894214504625743}
+    m_Duration: 1.666666666666666
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: -5157125709994875844}
+    m_EaseInDuration: 0
+    m_EaseOutDuration: 0
+    m_BlendInDuration: -1
+    m_BlendOutDuration: -1
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 0
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 0
+    m_PreExtrapolationTime: 0
+    m_DisplayName: ConversationPlayable
+  - m_Version: 1
+    m_Start: 0.2000000000000005
+    m_ClipIn: 0
+    m_Asset: {fileID: 6093655111552582435}
+    m_Duration: 1.95
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: -5157125709994875844}
+    m_EaseInDuration: 0
+    m_EaseOutDuration: 0
+    m_BlendInDuration: -1
+    m_BlendOutDuration: -1
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 0
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 0
+    m_PreExtrapolationTime: 0
+    m_DisplayName: ConversationPlayable
+  - m_Version: 1
+    m_Start: 11.066666666666665
+    m_ClipIn: 0
+    m_Asset: {fileID: -5580702480767882519}
+    m_Duration: 2.1500000000000004
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: -5157125709994875844}
+    m_EaseInDuration: 0
+    m_EaseOutDuration: 0
+    m_BlendInDuration: -1
+    m_BlendOutDuration: -1
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 0
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 0
+    m_PreExtrapolationTime: 0
+    m_DisplayName: ConversationPlayable
+  m_Markers:
+    m_Objects: []
+--- !u!114 &-2172601391049815309
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0fc6f5187a81dc47999eefade6f0935, type: 3}
+  m_Name: Track Group
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_AnimClip: {fileID: 0}
+  m_Locked: 0
+  m_Muted: 0
+  m_CustomPlayableFullTypename: 
+  m_Curves: {fileID: 0}
+  m_Parent: {fileID: 11400000}
+  m_Children:
+  - {fileID: -5157125709994875844}
+  m_Clips: []
+  m_Markers:
+    m_Objects: []
+--- !u!114 &-1891584340542659697
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0200e49f1e300be449a6439b69b32ae1, type: 3}
+  m_Name: ConversationPlayable
+  m_EditorClassIdentifier: 
+  canvasObject:
+    exposedName: 23cb26db13cab3f4a80d4ae6b4c18a19
+    defaultValue: {fileID: 0}
+  dialogueTextDisplay:
+    exposedName: 9ff12a05b2ab8f340bc2a39cdb2f9229
+    defaultValue: {fileID: 0}
+  fontAsset: {fileID: 11400000, guid: 55265800d1b89f54c8d8291107fc3797, type: 2}
+  dialogueString: "\u4F5C\u4E3A\u4F60\u7684\u670B\u53CB\uFF0C\u6211\u8FD9\u91CC\u6709\u4E00\u53E5\u8BDD\u8981\u7ED9\u4F60\uFF0C\u662F\u5931\u5FC6\u4E4B\u524D\u7684\u4F60\u6258\u6211\u544A\u8BC9\u4F60\u7684"
+  dialogueBoxDisplay:
+    exposedName: 3ddfb11f427e1e744a5f20b10e066cc0
+    defaultValue: {fileID: 0}
+  dialogueBoxColor: {r: 0.023529412, g: 1, b: 0.9529412, a: 0.78431374}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfda56da833e2384a9677cd3c976a436, type: 3}
+  m_Name: HospitalToNext_TimeLine
+  m_EditorClassIdentifier: 
+  m_Version: 0
+  m_Tracks:
+  - {fileID: -2172601391049815309}
+  m_FixedDuration: 0
+  m_EditorSettings:
+    m_Framerate: 60
+  m_DurationMode: 0
+  m_MarkerTrack: {fileID: 0}
+--- !u!114 &486052241680040844
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0200e49f1e300be449a6439b69b32ae1, type: 3}
+  m_Name: ConversationPlayable
+  m_EditorClassIdentifier: 
+  canvasObject:
+    exposedName: 6983639153fcf4b4691c851cd29825a9
+    defaultValue: {fileID: 0}
+  dialogueTextDisplay:
+    exposedName: fc69c83d8c77067458eb88863f97c4f5
+    defaultValue: {fileID: 0}
+  fontAsset: {fileID: 11400000, guid: 55265800d1b89f54c8d8291107fc3797, type: 2}
+  dialogueString: "\u4F60\u73B0\u5728\u4E5F\u77E5\u9053\u4E86\uFF0C\u4EBA\u7C7B\u548CAI\u7684\u6218\u6597\u5F00\u59CB\u540E\u8FD9\u4E2A\u57CE\u5E02\u5C31\u88AB\u5206\u6210\u4E86\u597D\u51E0\u4E2A\u533A\u57DF"
+  dialogueBoxDisplay:
+    exposedName: a07acb3727b5ba0488b577d89e989736
+    defaultValue: {fileID: 0}
+  dialogueBoxColor: {r: 0.023529412, g: 1, b: 0.9529412, a: 0.78431374}
+--- !u!114 &1248894214504625743
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0200e49f1e300be449a6439b69b32ae1, type: 3}
+  m_Name: ConversationPlayable
+  m_EditorClassIdentifier: 
+  canvasObject:
+    exposedName: c5e45fcc2afb5d543a801583941d6018
+    defaultValue: {fileID: 0}
+  dialogueTextDisplay:
+    exposedName: b39c84411b2a68b4d84d69732caa635e
+    defaultValue: {fileID: 0}
+  fontAsset: {fileID: 11400000, guid: 55265800d1b89f54c8d8291107fc3797, type: 2}
+  dialogueString: "\u4EC0\u4E48\uFF1F"
+  dialogueBoxDisplay:
+    exposedName: 36ad56447a572b44c8f20bbd18ac1763
+    defaultValue: {fileID: 0}
+  dialogueBoxColor: {r: 1, g: 0.99607843, b: 0, a: 0.78431374}
+--- !u!114 &1728505587839825486
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0200e49f1e300be449a6439b69b32ae1, type: 3}
+  m_Name: ConversationPlayable
+  m_EditorClassIdentifier: 
+  canvasObject:
+    exposedName: 08ff0f6c9650a8a4cb7f20eab5abf495
+    defaultValue: {fileID: 0}
+  dialogueTextDisplay:
+    exposedName: 17eb0565bccb1aa48b024295d4dcf7f0
+    defaultValue: {fileID: 0}
+  fontAsset: {fileID: 11400000, guid: 55265800d1b89f54c8d8291107fc3797, type: 2}
+  dialogueString: "\u4F60\u73B0\u5728\u5728\u7684\uFF0C\u5C31\u662F\u5C5E\u4E8E\u4EBA\u7C7B\u7684\u533A\u57DF\u2014\u2014\u5E9F\u533A"
+  dialogueBoxDisplay:
+    exposedName: 4b6b718a6a94a73409790096114c0feb
+    defaultValue: {fileID: 0}
+  dialogueBoxColor: {r: 0.023529412, g: 1, b: 0.9529412, a: 0.78431374}
+--- !u!114 &5585023783285230094
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0200e49f1e300be449a6439b69b32ae1, type: 3}
+  m_Name: ConversationPlayable
+  m_EditorClassIdentifier: 
+  canvasObject:
+    exposedName: a52e96dde32c2874082cc7e93f0f3999
+    defaultValue: {fileID: 0}
+  dialogueTextDisplay:
+    exposedName: 1304d6061649a6548b10e4d6b21cfbce
+    defaultValue: {fileID: 0}
+  fontAsset: {fileID: 11400000, guid: 55265800d1b89f54c8d8291107fc3797, type: 2}
+  dialogueString: "\u4F60\u73B0\u5728\u5728\u7684\uFF0C\u5C31\u662F\u5C5E\u4E8E\u4EBA\u7C7B\u7684\u533A\u57DF\u2014\u2014\u5E9F\u533A"
+  dialogueBoxDisplay:
+    exposedName: cde5e549d3d40b247b60c887d802a257
+    defaultValue: {fileID: 0}
+  dialogueBoxColor: {r: 0.023529412, g: 1, b: 0.9529412, a: 0.78431374}
+--- !u!114 &6093655111552582435
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0200e49f1e300be449a6439b69b32ae1, type: 3}
+  m_Name: ConversationPlayable
+  m_EditorClassIdentifier: 
+  canvasObject:
+    exposedName: b1b4c8107768942499d347c164a17842
+    defaultValue: {fileID: 0}
+  dialogueTextDisplay:
+    exposedName: fb78a1f42a074894e9748d6629773d3c
+    defaultValue: {fileID: 0}
+  fontAsset: {fileID: 11400000, guid: 55265800d1b89f54c8d8291107fc3797, type: 2}
+  dialogueString: "\u9996\u6218\u544A\u6377\uFF0C\u606D\u559C\u3002"
+  dialogueBoxDisplay:
+    exposedName: 96e7df70748cbb74ea92948402b44657
+    defaultValue: {fileID: 0}
+  dialogueBoxColor: {r: 0.023529412, g: 1, b: 0.9529412, a: 0.78431374}
